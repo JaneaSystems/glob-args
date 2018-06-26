@@ -1,12 +1,12 @@
 # glob-args
 
-Simple utility for parsing CLI globs. Matched files will be quoted, unmatched patterns will be returned unchanged.
+Simple utility for parsing CLI globs. Matched files will be quoted, unmatched patterns will be returned unchanged. Uses [glob](https://www.npmjs.com/package/glob), so on Windows use `test/*.js` not `test\*.js`.
 
 # Usage
 
 ```javascript
 const globArgs = require('glob-args')
-const globbed= globArgs(['--option', '*/*.js'])
+const globbed = globArgs(['--option', '*/*.js'])
 // globbed: ['--options', '"test/test.js"', '"test/test2.js"', etc]
 ```
 
