@@ -1,0 +1,30 @@
+{
+  "name": "glob-args",
+  "version": "0.1.0",
+  "description": "CLI helper for globing arguments",
+  "main": "index.js",
+  "bin": "cli.js",
+  "scripts": {
+    "test": "standard && node test/test.js"
+  },
+  "files":[
+    "cli.js",
+    "index.js"
+  ],
+  "keywords": [
+    "glob",
+    "cli"
+  ],
+  "author": "Bartosz Sosnowski <bartosz@janeasystems.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/janeasystems/glob-args.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "standard": "^11.0.1"
+  },
+  "dependencies": {
+    "glob": "^7.1.2"
+  }
+}
