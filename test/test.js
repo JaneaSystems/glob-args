@@ -27,7 +27,10 @@ function testModule () {
 
 // Test CLI
 function testCLI () {
-  const expected = `"file1.txt" "file2 .txt" "sub folder/file4 .txt"${EOL}`
+  // on Linux, shell will espace the globs before we can do anything
+  const expected = process.platform === 'win32'
+    ? `"file1.txt" "file2 .txt" "sub folder/file4 .txt"${EOL}`
+    : `file1.txt file2 .txt sub folder/file4 .txt${EOL}`
   const result = spawnSync(process.argv0,
     [ join(__dirname, '..', 'cli.js'), 'echo', '*.txt', '*/*.txt' ],
     { encoding: 'utf8' })
