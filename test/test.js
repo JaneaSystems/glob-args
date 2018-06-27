@@ -6,21 +6,20 @@ const globArgs = require('..')
 process.chdir(join(__dirname, 'fixture'))
 
 // Test module
-function testModule () {
+function testModule (escape) {
+  let escapeChar = escape === true ? '"' : ''
   const expected = [
     'non-existing',
-    '"file1.txt"',
-    '"file2 .txt"',
-    '"sub folder/file4 .txt"'
+    `${escapeChar}file1.txt${escapeChar}`,
+    `${escapeChar}file2 .txt${escapeChar}`,
+    `${escapeChar}sub folder/file4 .txt${escapeChar}`
   ]
-  const found = globArgs(['non-existing', '*.txt', '*/*.txt'])
+  const found = globArgs(['non-existing', '*.txt', '*/*.txt'], escape === undefined ? undefined : {escape})
   if (expected.length !== found.length ||
       !expected.every((f) => found.indexOf(f) >= 0)) {
     console.log(`Module test failed!`)
-    console.log('Expected:')
-    expected.forEach((file) => console.log(`\t${file}`))
-    console.log('Got:')
-    found.forEach((file) => console.log(`\t${file}`))
+    console.log(`Expected:\n\t${expected.join('\n\t')}`)
+    console.log(`Got:\n\t${found.join('\n\t')}`)
     process.exit(-1)
   }
 }
@@ -43,5 +42,7 @@ function testCLI () {
 }
 
 testModule()
+testModule(true)
+testModule(false)
 testCLI()
 console.log('OK!')

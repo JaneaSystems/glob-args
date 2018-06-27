@@ -1,6 +1,6 @@
 {
   "name": "glob-args",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CLI helper for globing arguments",
   "main": "index.js",
   "bin": "cli.js",
