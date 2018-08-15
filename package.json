@@ -1,15 +1,16 @@
 {
   "name": "glob-args",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "CLI helper for globing arguments",
   "main": "index.js",
   "bin": "cli.js",
   "scripts": {
     "test": "standard && node test/test.js"
   },
-  "files":[
+  "files": [
     "cli.js",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "keywords": [
     "glob",
